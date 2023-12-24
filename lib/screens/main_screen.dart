@@ -1,8 +1,10 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, unused_import
 
-//import 'package:flutter_application_1/screens/astudent_screen.dart';
-import 'package:flutter_application_1/screens/astudent_screen.dart';
-import 'package:flutter_application_1/widgets/search_field.dart';
+import 'package:flutter_application_1/pages/favorite_page.dart';
+import 'package:flutter_application_1/pages/home_page.dart';
+import 'package:flutter_application_1/pages/search_page.dart';
+import 'package:flutter_application_1/pages/stuact_page.dart';
+import 'package:flutter_application_1/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/ayouth_screen.dart';
 import 'package:flutter_application_1/widgets/circlebutton.dart';
@@ -16,6 +18,14 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  List<Widget> listoptions = <Widget>[
+    HomePage(),
+    Favorites(),
+    SearchPage(),
+    ProfilePage()
+  ];
+  int _selectedIndex = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +47,7 @@ class _MainScreenState extends State<MainScreen> {
             SizedBox(
               height: 20,
             ),
-            Body(),
-            //BottomBar()
+            listoptions[_selectedIndex],
           ],
         ),
       ),
@@ -52,9 +61,6 @@ class _MainScreenState extends State<MainScreen> {
             activeColor: Colors.white,
             tabBackgroundColor: Color.fromARGB(255, 116, 211, 255),
             gap: 8,
-            onTabChange: (index) {
-              print(index);
-            },
             padding: const EdgeInsets.all(16),
             tabs: [
               GButton(
@@ -66,112 +72,26 @@ class _MainScreenState extends State<MainScreen> {
                 text: 'Likes',
               ),
               GButton(
-                icon: Icons.chat_bubble,
-                text: 'Chat',
+                icon: Icons.search,
+                text: 'Search',
               ),
               GButton(
                 icon: Icons.person,
                 text: 'Profile',
               ),
             ],
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
           ),
         ),
       ),
     );
   }
 }
-
-class Body extends StatelessWidget {
-  const Body({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Card(
-          color: Colors.white,
-          shadowColor: Color.fromRGBO(206, 216, 241, 0.973),
-          elevation: 9,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          child: Padding(
-            padding: EdgeInsets.all(25),
-            child: Row(
-              children: [
-                /*Image.network(
-                  "https://example.com/image.png",
-                  width: 100,
-                  height: 100,
-                ),*/
-                SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    "Student Activites",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
-                  ),
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => StudentAct()),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Card(
-          color: Colors.white,
-          shadowColor: Color.fromRGBO(206, 216, 241, 0.973),
-          elevation: 9,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          child: Padding(
-            padding: EdgeInsets.all(25),
-            child: Row(
-              children: [
-                /*Image.network(
-                  "https://example.com/image.png",
-                  width: 100,
-                  height: 100,
-                ),*/
-                SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    "Youth Care",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
-                  ),
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => YouthCare()),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
 class AppBar extends StatelessWidget {
   const AppBar({super.key});
 
@@ -213,10 +133,6 @@ class AppBar extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
-          height: 20,
-        ),
-        const SearchTextField(),
       ]),
     );
   }
