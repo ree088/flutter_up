@@ -3,7 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/home_screen.dart';
+import 'package:flutter_application_1/screens/h_screen.dart';
 import 'package:flutter_application_1/screens/main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -301,18 +301,21 @@ class _LoginState extends State<LoginScreen> {
         .get()
         .then((DocumentSnapshot documentSnapshot) {
       if (documentSnapshot.exists) {
-        if (documentSnapshot.get('role') == "admin") {
+        Map<String, dynamic> Store =
+            documentSnapshot.data() as Map<String, dynamic>;
+        print('This is the type of user ${Store['role']}');
+        if (Store['role'] == 'student') {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => MainScreen(),
+              builder: (context) => HScreen(),
             ),
           );
         } else {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => HomeScreen(),
+              builder: (context) => MainScreen(),
             ),
           );
         }

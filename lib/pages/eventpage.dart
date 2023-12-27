@@ -1,12 +1,11 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/models/activities.dart';
+import 'package:flutter_application_1/models/youth.dart';
 
-
-class DescriptionPage extends StatelessWidget {
-  final Activities activities;
-  const DescriptionPage({super.key, required this.activities, });
+class EventPage extends StatelessWidget {
+  final Youth youth;
+  const EventPage({super.key,  required this.youth});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class DescriptionPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Image.network(activities.image,
+              child: Image.network(youth.image,
                   height: 200,
                   width: double.infinity,
                   fit: BoxFit.cover,
@@ -37,35 +36,20 @@ class DescriptionPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                activities.name,
+                // 'Who is ',
+                youth.name,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                activities.description,
+                youth.description,
                 style: TextStyle(
                   fontSize: 18,
                 ),
               ),
             ),
-           /* Padding(
-  padding: const EdgeInsets.all(8.0),
-  child: ElevatedButton(
-    onPressed: () {
-      // Navigate to Edit Activity screen
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => EditActivityScreen(activityId: activities.name),
-        ),
-      );
-    },
-    child: Text('Edit'),
-  ),
-),*/
-
           ],
         ),
       )),

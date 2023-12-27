@@ -1,13 +1,11 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 
-class SearchPage extends StatelessWidget {
-  const SearchPage({super.key});
+class SSearchPage extends StatelessWidget {
+  const SSearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-   return TextFormField(
+    return TextFormField(
       decoration: InputDecoration(
         prefixIcon: const Icon(
           Icons.search,
@@ -16,7 +14,7 @@ class SearchPage extends StatelessWidget {
         ),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         labelText: 'Search your topic',
-        labelStyle: TextStyle(color: Colors.grey),
+        labelStyle: const TextStyle(color: Colors.grey),
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)),

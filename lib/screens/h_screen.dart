@@ -1,30 +1,26 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, unused_import
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print
 
-import 'package:flutter_application_1/pages/favorite_page.dart';
-import 'package:flutter_application_1/pages/home_page.dart';
-import 'package:flutter_application_1/pages/search_page.dart';
-import 'package:flutter_application_1/pages/stuact_page.dart';
-import 'package:flutter_application_1/pages/profile_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/ayouth_screen.dart';
-import 'package:flutter_application_1/widgets/circlebutton.dart';
+import 'package:flutter_application_1/page/sprofile_page.dart';
+import 'package:flutter_application_1/page/ssearch_page.dart';
+import 'package:flutter_application_1/pages/favorite_page.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class HScreen extends StatefulWidget {
+  const HScreen({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<HScreen> createState() => _HScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _HScreenState extends State<HScreen> {
   List<Widget> listoptions = <Widget>[
-    HomePage(),
+    //HomePage(),
     Favorites(),
-    SearchPage(),
-    ProfilePage(),
+    SSearchPage(),
+    SProfilePage(),
   ];
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
 
   @override
   Widget build(BuildContext context) {
