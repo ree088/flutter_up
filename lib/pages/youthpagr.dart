@@ -2,6 +2,8 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/youth.dart';
+import 'package:flutter_application_1/widgets/youth_widget.dart';
 
 class YouthPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -13,7 +15,7 @@ class YouthPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Youth Care'),
       ),
-      /*body: StreamBuilder(
+      body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection("youth").snapshots(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -28,14 +30,14 @@ class YouthPage extends StatelessWidget {
                 Map<String, dynamic> data =
                     document.data()! as Map<String, dynamic>;
 
-                return Youth(
+                return YouthWidget(
                   youth: Youth.fromMap(data),
                 ); // 👈 Your valid data here
               }).toList()
             ],
           );
         },
-      ),*/
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
@@ -150,7 +152,7 @@ class YouthPage extends StatelessWidget {
                             imageController.clear();
                             timeController.clear();
                             descriptionController.clear();
-                            var y = FirebaseFirestore.instance;
+                            var db = FirebaseFirestore.instance;
 
                             Map<String, dynamic> youth = {
                               'name': name,
@@ -158,7 +160,7 @@ class YouthPage extends StatelessWidget {
                               'image': image,
                               'time': int.parse(time),
                             };
-                            await y.collection('youth').doc(name).set(youth);
+                            await db.collection('youth').doc(name).set(youth);
 
                             Navigator.pop(context);
                           },

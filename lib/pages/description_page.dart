@@ -1,12 +1,15 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/activities.dart';
 
-
 class DescriptionPage extends StatelessWidget {
   final Activities activities;
-  const DescriptionPage({super.key, required this.activities, });
+  const DescriptionPage({
+    super.key,
+    required this.activities,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -50,22 +53,21 @@ class DescriptionPage extends StatelessWidget {
                 ),
               ),
             ),
-           /* Padding(
-  padding: const EdgeInsets.all(8.0),
-  child: ElevatedButton(
-    onPressed: () {
-      // Navigate to Edit Activity screen
-      Navigator.push(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Navigate to Edit Activity screen
+                  /*Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => EditActivityScreen(activityId: activities.name),
+          builder: (context) => EditActivityScreen(activityId: activities.id),
         ),
-      );
-    },
-    child: Text('Edit'),
-  ),
-),*/
-
+      );*/
+                },
+                child: Text('Edit'),
+              ),
+            ),
           ],
         ),
       )),

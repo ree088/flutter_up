@@ -7,20 +7,9 @@ import 'package:flutter_application_1/widgets/activites_widget.dart';
 
 class StudentActPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-  
-  //final CollectionReference activities = FirebaseFirestore.instance.collection('activities');
-  /*void updateActivity(String newName, String newDescription, String newImage) {
-    activities.doc(name).update({
-      'name': newName,
-      'description': newDescription,
-      'image': newImage,
-    });
-  }
-
-  void deleteActivity() {
-    activities.doc(name).delete();
-  }*/
-  StudentActPage({super.key,});
+  StudentActPage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +17,6 @@ class StudentActPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Students Activites'),
       ),
-
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection("activites").snapshots(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -142,6 +130,9 @@ class StudentActPage extends StatelessWidget {
                             String name = nameController.text;
                             String image = imageController.text;
                             String description = descriptionController.text;
+                            nameController.clear();
+                            imageController.clear();
+                            descriptionController.clear();
 
                             var db = FirebaseFirestore.instance;
 
@@ -166,7 +157,6 @@ class StudentActPage extends StatelessWidget {
         },
         child: Icon(Icons.add),
       ),
-      
     );
   }
 }

@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_import
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/firebase_options.dart';
-
-import 'package:flutter_application_1/pages/youthpagr.dart';
+import 'package:flutter_application_1/page/readstudent.dart';
+import 'package:flutter_application_1/pages/stuact_page.dart';
+import 'package:flutter_application_1/screens/login_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +28,6 @@ class MyApp extends StatelessWidget {
               ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 42, 56, 214)),
           useMaterial3: true,
         ),
-        home: YouthPage());
+        home: LoginScreen());
   }
 }

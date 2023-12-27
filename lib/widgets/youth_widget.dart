@@ -18,7 +18,7 @@ class YouthWidget extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => EventPage(youth: youth),
+              builder: (context) => EventPage(youth: youth,),
             ),
           );
         },
