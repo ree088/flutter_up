@@ -47,7 +47,7 @@ class YouthPage extends StatelessWidget {
               TextEditingController imageController = TextEditingController();
               TextEditingController descriptionController =
                   TextEditingController();
-              TextEditingController timeController = TextEditingController();
+              // TextEditingController timeController = TextEditingController();
               return Dialog(
                 child: Form(
                   key: _formKey,
@@ -110,7 +110,7 @@ class YouthPage extends StatelessWidget {
                         ),
                       ),
                       //time
-                      Padding(
+                      /* Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
                           controller: timeController,
@@ -126,7 +126,7 @@ class YouthPage extends StatelessWidget {
                           keyboardType: TextInputType.url,
                           decoration: const InputDecoration(hintText: "time"),
                         ),
-                      ),
+                      ),*/
                       ElevatedButton(
                           style: ButtonStyle(
                             shape: MaterialStateProperty.all<
@@ -146,11 +146,11 @@ class YouthPage extends StatelessWidget {
                           onPressed: () async {
                             String name = nameController.text;
                             String image = imageController.text;
-                            String time = timeController.text;
+                            //  String time = timeController.text;
                             String description = descriptionController.text;
                             nameController.clear();
                             imageController.clear();
-                            timeController.clear();
+                            // timeController.clear();
                             descriptionController.clear();
                             var db = FirebaseFirestore.instance;
 
@@ -158,7 +158,7 @@ class YouthPage extends StatelessWidget {
                               'name': name,
                               'description': description,
                               'image': image,
-                              'time': int.parse(time),
+                              // 'time': time,
                             };
                             await db.collection('youth').doc(name).set(youth);
 

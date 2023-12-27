@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/stuact_page.dart';
-import 'package:flutter_application_1/screens/ayouth_screen.dart';
+import 'package:flutter_application_1/pages/youthpagr.dart';
 import 'package:flutter_application_1/widgets/circlebutton.dart';
 
 class HomePage extends StatelessWidget {
@@ -92,7 +92,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => YouthCare()),
+                      MaterialPageRoute(builder: (context) => YouthPage()),
                     );
                   },
                 ),

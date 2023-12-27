@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/page/shome_page.dart';
 import 'package:flutter_application_1/page/sprofile_page.dart';
 import 'package:flutter_application_1/page/ssearch_page.dart';
 import 'package:flutter_application_1/pages/favorite_page.dart';
@@ -15,12 +16,12 @@ class HScreen extends StatefulWidget {
 
 class _HScreenState extends State<HScreen> {
   List<Widget> listoptions = <Widget>[
-    //HomePage(),
+    SHomePage(),
     Favorites(),
     SSearchPage(),
     SProfilePage(),
   ];
-  int _selectedIndex = 2;
+  int _selectedIndex = 1;
 
   @override
   Widget build(BuildContext context) {
